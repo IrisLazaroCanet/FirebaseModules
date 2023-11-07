@@ -13,9 +13,17 @@
         <item name="colorSurface">?attr/colorSecondary</item>
         <item name="colorOnSurface">?attr/colorOnSecondary</item>
 
-        <!-- Status bar color. -->
+        <!-- Status bar color -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
 
+        <!-- Background app -->
+        <item name="android:colorBackground">?attr/colorPrimary</item>
+
         <!-- Customize your theme here. -->
+        <item name="toolbarStyle">@style/ModuloDosFirebaseCDI.Toolbar</item>
+    </style>
+
+    <style name="ModuloDosFirebaseCDI.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+
     </style>
 </resources>
