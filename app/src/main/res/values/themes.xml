@@ -1,6 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.ModuloDosFirebaseCDI" parent="Theme.ModuloDosFirebaseCDI.Base">
+
+    </style>
+
     <!-- Base application theme. -->
-    <style name="Theme.ModuloDosFirebaseCDI" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.ModuloDosFirebaseCDI.Base" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/baseLight</item>
         <item name="colorPrimaryVariant">@color/lighterLight</item>
@@ -12,10 +16,11 @@
         <!-- Surface Colors -->
         <item name="colorSurface">?attr/colorSecondary</item>
         <item name="colorOnSurface">?attr/colorOnSecondary</item>
-
         <!-- Status bar color -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-
+        <!-- Shadow setup -->
+        <item name="android:ambientShadowAlpha">0.7</item>
+        <item name="android:spotShadowAlpha">0.7</item>
         <!-- Background app -->
         <item name="android:colorBackground">?attr/colorPrimary</item>
 
@@ -23,7 +28,9 @@
         <item name="toolbarStyle">@style/ModuloDosFirebaseCDI.Toolbar</item>
     </style>
 
+    <!-- POT SER QUE LES OMBRES NO FUNCIONIN BÉ A L'EMULADOR, PERÒ SÍ A UN MÒBIL REAL -->
     <style name="ModuloDosFirebaseCDI.Toolbar" parent="Widget.MaterialComponents.Toolbar">
-
+        <item name="android:background">@color/baseGrey</item>
+        <item name="android:elevation">@dimen/shadow_elevation</item>
     </style>
 </resources>
