@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="baseGrey">#444045</color>
+    <color name="lighterGrey">#666267</color>
+    <color name="baseLight">#EDDC9D</color>
+    <color name="lighterLight">#F3E8C3</color>
+
+    <!-- Indication Colors -->
+    <color name="baseBlue">#012B54</color>
+    <color name="baseRed">#661209</color>
+    <color name="baseGreen">#1F422C</color>
+
+    <!--Auxiliary Colors -->
+    <color name="debugColor">#FF00FB</color>
+    <color name="clearColor">#00FFFFFF</color>
+    <color name="shadowColor">#FF000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>
