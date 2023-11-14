@@ -2,17 +2,6 @@
     <!-- Base application theme. -->
     <style name="Theme.ModuloDosFirebaseCDI" parent="Theme.ModuloDosFirebaseCDI.Base">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/baseGrey</item>
-        <item name="colorPrimaryVariant">@color/lighterGrey</item>
-        <item name="colorOnPrimary">@color/baseLight</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/baseLight</item>
-        <item name="colorSecondaryVariant">@color/lighterLight</item>
-        <item name="colorOnSecondary">@color/baseGrey</item>
-        <!-- Surface Colors -->
-        <item name="colorSurface">?attr/colorSecondary</item>
-        <item name="colorOnSurface">?attr/colorOnSecondary</item>
-        <!-- Status bar color. -->
-        <!-- Customize your theme here. -->
+        <item name="android:colorBackground">?attr/colorPrimary</item>
     </style>
 </resources>

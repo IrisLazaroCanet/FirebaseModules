@@ -26,6 +26,9 @@
 
         <!-- Customize your theme here. -->
         <item name="toolbarStyle">@style/ModuloDosFirebaseCDI.Toolbar</item>
+        <item name="materialCardViewStyle">@style/ModuloDosFirebaseCDI.CardView</item>
+        <item name="textInputStyle">@style/ModuloDosFirebaseCDI.Input</item>
+        <item name="materialButtonStyle">@style/ModuloDosFirebaseCDI.Button</item>
     </style>
 
     <!-- POT SER QUE LES OMBRES NO FUNCIONIN BÉ A L'EMULADOR, PERÒ SÍ A UN MÒBIL REAL -->
@@ -33,4 +36,26 @@
         <item name="android:background">@color/baseGrey</item>
         <item name="android:elevation">@dimen/shadow_elevation</item>
     </style>
+
+
+    <style name="ModuloDosFirebaseCDI.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">@dimen/shadow_elevation</item>
+    </style>
+
+    <style name="ModuloDosFirebaseCDI.Input" parent = "@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxStrokeWidth">@dimen/tiny</item>
+        <item name="boxStrokeWidthFocused">@dimen/tiny</item>
+        <item name="boxStrokeErrorColor">@color/baseRed</item>
+        <item name="android:textColorHint">@color/baseLight</item>
+        <item name="hintTextColor">@color/lighterLight</item>
+    </style>
+
+    <style name="ModuloDosFirebaseCDI.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@color/baseLight</item>
+        <item name="backgroundTint">@color/baseGrey</item>
+        <item name="rippleColor">@color/darkestLight</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="elevation">@dimen/shadow_elevation</item>
+    </style>
+
 </resources>

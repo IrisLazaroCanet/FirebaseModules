@@ -16,4 +16,5 @@
     <color name="shadowColor">#FF000000</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="darkestLight">#736A4B</color>
 </resources>
