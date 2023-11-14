@@ -29,6 +29,7 @@
         <item name="materialCardViewStyle">@style/ModuloDosFirebaseCDI.CardView</item>
         <item name="textInputStyle">@style/ModuloDosFirebaseCDI.Input</item>
         <item name="materialButtonStyle">@style/ModuloDosFirebaseCDI.Button</item>
+        <item name="extendedFloatingActionButtonStyle">@style/ModuloDosFirebaseCDI.FloatingButtonExtended</item>
     </style>
 
     <!-- POT SER QUE LES OMBRES NO FUNCIONIN BÉ A L'EMULADOR, PERÒ SÍ A UN MÒBIL REAL -->
@@ -55,7 +56,15 @@
         <item name="backgroundTint">@color/baseGrey</item>
         <item name="rippleColor">@color/darkestLight</item>
         <item name="android:stateListAnimator">@null</item>
-        <item name="elevation">@dimen/shadow_elevation</item>
+        <item name="android:elevation">@dimen/shadow_elevation</item>
+    </style>
+
+    <style name="ModuloDosFirebaseCDI.Button.NoShadow" parent="ModuloDosFirebaseCDI.Button">
+        <item name="android:elevation">0dp</item>
+    </style>
+
+    <style name="ModuloDosFirebaseCDI.FloatingButtonExtended" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
+
     </style>
 
 </resources>

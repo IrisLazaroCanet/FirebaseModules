@@ -73,6 +73,7 @@
         </androidx.cardview.widget.CardView>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/materialButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/materialCardViewPassword"
@@ -80,6 +81,36 @@
             android:text="Hello world"
             />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/materialButtonNoShadow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/materialButton"
+            android:layout_margin="@dimen/margin_normal"
+            android:text="Hello world"
+            style="@style/ModuloDosFirebaseCDI.Button.NoShadow"
+            />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/materialExtendedFloatingButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/materialButtonNoShadow"
+            android:layout_margin="@dimen/margin_normal"
+            android:text="Hello world"
+            android:textAlignment="center"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/materialFloatingButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/margin_normal"
+            android:src="@drawable/add_icon"
+            app:fabSize="normal"
+            />
 
     </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
