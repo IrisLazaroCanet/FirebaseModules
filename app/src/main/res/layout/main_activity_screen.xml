@@ -12,7 +12,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/componentToolbarContainer"
-            android:name="com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.fragments.AppToolbar"
+            android:name="com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.fragments.components.AppToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -21,8 +21,17 @@
         </androidx.fragment.app.FragmentContainerView>
 
         <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/componentNavHostContainer"
+            android:name="com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.fragments.components.AppNavHost"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/component_toolbar"
+            android:layout_below="@id/componentToolbarContainer"
+            android:layout_above="@id/componentNavigationBottomBarContainer"/>
+
+        <androidx.fragment.app.FragmentContainerView
             android:id="@+id/componentNavigationBottomBarContainer"
-            android:name="com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.fragments.AppBottomBar"
+            android:name="com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.fragments.components.AppBottomBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

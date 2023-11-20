@@ -1,45 +1,40 @@
-package com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.fragments
+package com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.fragments.components
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.R
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class AppBottomBar : Fragment() {
-    companion object{
-        private lateinit var Instance: AppBottomBar
+class AppNavHost : Fragment() {
+    companion object {
+        private lateinit var Instance: AppNavHost
         fun get() = Instance
     }
 
-    lateinit var bottomBar : BottomNavigationView
+    lateinit var navHost : NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Instance = this
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.component_bottombar, container, false)
-        bottomBar = view.findViewById(R.id.AppNavigationBottomBar);
+        val view = inflater.inflate(R.layout.component_navhost, container, false)
+
+        val navHostFragment = childFragmentManager.findFragmentById(R.id.AppNavigationHostFragment) as NavHostFragment
+        navHost = navHostFragment.navController
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        bottomBar.setOnItemSelectedListener { menuItem ->
-
-            AppToolbar.get().toolbar.title = menuItem.title
-
-            true
-        }
-
-        bottomBar.selectedItemId = bottomBar.menu.getItem(0).itemId
     }
 }

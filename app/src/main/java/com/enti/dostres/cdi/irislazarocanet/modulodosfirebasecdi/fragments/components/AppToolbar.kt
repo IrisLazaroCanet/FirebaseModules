@@ -1,4 +1,4 @@
-package com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.fragments
+package com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.fragments.components
 
 import android.os.Bundle
 import android.view.LayoutInflater
