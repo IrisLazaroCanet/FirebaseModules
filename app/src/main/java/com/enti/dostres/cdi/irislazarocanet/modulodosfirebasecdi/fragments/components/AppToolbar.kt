@@ -33,4 +33,24 @@ class AppToolbar : Fragment() {
         toolbar = view.findViewById(R.id.AppToolbar)
         return view
     }
+
+    //Com "Start"
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        toolbar.setNavigationOnClickListener {
+            //Des d'aquí, obriríem el menú drawer (es posa sempre per sobre)
+        }
+
+        toolbar.setOnMenuItemClickListener {menuItem ->
+
+            when(menuItem.itemId) {
+                R.id.toolbar_button_test -> {
+                    //Fem el codi que necessitem
+                }
+            }
+
+            true
+        }
+    }
 }
