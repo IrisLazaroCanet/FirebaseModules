@@ -6,7 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.R
+import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.firebase.FB
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.firebase.Firebase
+import com.google.firebase.crashlytics.crashlytics
+import com.google.firebase.crashlytics.setCustomKeys
 
 class AppToolbar : Fragment() {
     companion object {
@@ -47,6 +51,13 @@ class AppToolbar : Fragment() {
             when(menuItem.itemId) {
                 R.id.toolbar_button_test -> {
                     //Fem el codi que necessitem
+                    //throw RuntimeException("Test crash")
+                    val exception = Exception("Test Error")
+                    FB.crashlytics.logSimpleError("Some error") {
+                        key("Some Name", "Abraham")
+                        key("Is failing", true)
+                        key("Level 0 of fail", 9001)
+                    }
                 }
             }
 
