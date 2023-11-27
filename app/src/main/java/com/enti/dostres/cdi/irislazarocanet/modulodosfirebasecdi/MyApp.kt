@@ -1,8 +1,7 @@
-package com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.fragments
+package com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi
 
 import android.app.Application
 import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.firebase.FB
-import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.firebase.MyFirebase
 
 class MyApp : Application() {
 
