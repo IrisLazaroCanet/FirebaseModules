@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "889635644002",
+    "project_id": "modulodosfirebasecdi-7e6fa",
+    "storage_bucket": "modulodosfirebasecdi-7e6fa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889635644002:android:cc2a6de002f363ca08673b",
+        "android_client_info": {
+          "package_name": "com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAz4IngNuaiFojdc8uemrRdoD2Sm3TgRw4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

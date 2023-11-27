@@ -1,7 +1,8 @@
-package com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi
+package com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.R
 
 class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
