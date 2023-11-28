@@ -44,6 +44,7 @@ class AppToolbar : Fragment() {
 
         toolbar.setNavigationOnClickListener {
             //Des d'aquí, obriríem el menú drawer (es posa sempre per sobre)
+            AppDrawer.get().openDrawer()
         }
 
         toolbar.setOnMenuItemClickListener {menuItem ->

@@ -27,6 +27,7 @@
         <item name="android:colorBackground">@color/baseLight</item>
 
         <!-- Customize your theme here. -->
+        <item name="navigationViewStyle">@style/ModuloDosFirebaseCDI.Drawer</item>
         <item name="toolbarStyle">@style/ModuloDosFirebaseCDI.Toolbar</item>
         <item name="bottomNavigationStyle">@style/ModuloDosFirebaseCDI.BottomBar</item>
         <item name="materialCardViewStyle">@style/ModuloDosFirebaseCDI.CardView</item>
@@ -40,6 +41,12 @@
         <item name="android:background">@color/baseGrey</item>
         <item name="android:elevation">@dimen/shadow_elevation</item>
         <item name="navigationIconTint">@color/baseLight</item>
+    </style>
+
+    <style name="ModuloDosFirebaseCDI.Drawer" parent="Widget.MaterialComponents.NavigationView">
+        <item name="itemIconTint">@color/baseLight</item>
+        <item name="itemTextColor">@color/baseLight</item>
+        <item name="elevation">@dimen/shadow_elevation</item>
     </style>
 
    <style name="ModuloDosFirebaseCDI.BottomBar" parent="Widget.MaterialComponents.BottomNavigationView">
@@ -60,6 +67,8 @@
         <item name="boxStrokeErrorColor">@color/baseRed</item>
         <item name="android:textColorHint">@color/baseLight</item>
         <item name="hintTextColor">@color/lighterLight</item>
+        <item name="startIconTint">@color/baseLight</item>
+        <item name="endIconTint">@color/baseLight</item>
     </style>
 
     <style name="ModuloDosFirebaseCDI.Button" parent="Widget.MaterialComponents.Button">
