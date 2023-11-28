@@ -12,7 +12,20 @@
           "package_name": "com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "889635644002-biltlvfkkkebgojt3skfv28ll809k5ie.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi",
+            "certificate_hash": "fe00ffd3c07d8f55c16e8e038243a514ea3ba6cc"
+          }
+        },
+        {
+          "client_id": "889635644002-041v07667p2l7l65prh290mpktaa84gi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAz4IngNuaiFojdc8uemrRdoD2Sm3TgRw4"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "889635644002-041v07667p2l7l65prh290mpktaa84gi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
