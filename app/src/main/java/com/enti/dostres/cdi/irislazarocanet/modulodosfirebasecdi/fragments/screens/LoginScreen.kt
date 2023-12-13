@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.R
 import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.firebase.FB
+import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.firebase.models.DataBaseUser
 import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.fragments.components.AppDrawer
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
@@ -17,11 +18,13 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
+import java.util.Date
 
 class LoginScreen : Fragment() {
 
     lateinit var fragmentView : View
 
+    /*
     val usernameContainer by lazy { fragmentView.findViewById<MaterialCardView>(R.id.usernameInputContainer) }
     val usernameInput by lazy { fragmentView.findViewById<TextInputLayout>(R.id.usernameInput) }
 
@@ -33,6 +36,8 @@ class LoginScreen : Fragment() {
 
     val emailLoginButton by lazy {fragmentView.findViewById<MaterialButton>(R.id.loginButton)}
     val registerButton by lazy {fragmentView.findViewById<MaterialButton>(R.id.registerButton)}
+    */
+
     val googleAuthButton by lazy {fragmentView.findViewById<SignInButton>(R.id.login_google_button)}
 
     //Delegate function
@@ -57,8 +62,9 @@ class LoginScreen : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        emailLoginButton.setOnClickListener {emailLogin()}
+        /*emailLoginButton.setOnClickListener {emailLogin()}
         registerButton.setOnClickListener {startRegister()}
+        */
         googleAuthButton.setOnClickListener {googleAuth()}
 
     }
@@ -68,7 +74,7 @@ class LoginScreen : Fragment() {
     }
 
     private fun startRegister() {
-        verifyPasswordContainer.visibility = View.VISIBLE
+        /*verifyPasswordContainer.visibility = View.VISIBLE
 
         emailLoginButton.text = getString(R.string.back_to_login_button)
         registerButton.text = getString(R.string.end_register_button)
@@ -84,7 +90,7 @@ class LoginScreen : Fragment() {
 
         }
 
-        registerButton.setOnClickListener { endRegister() }
+        registerButton.setOnClickListener { endRegister() }*/
     }
 
     private fun endRegister() {
@@ -111,19 +117,71 @@ class LoginScreen : Fragment() {
     //Ponemos res como variable porque hace una llamada asíncrona (no sabemos cuándo va a volver)
     //En el momento en que la llame, la función se va a acabar
     private fun onSignInResult(result: FirebaseAuthUIAuthenticationResult) {
-        if(result.resultCode == RESULT_OK) {
-            val userName =
-            Snackbar.make(AppDrawer.get().fragmentView, getString(R.string.user_login_message, FB.auth.getUsername()), Snackbar.LENGTH_LONG)
-                .show()
+       if(result.resultCode != RESULT_OK) {
+           FB.crashlytics.logSimpleError("Login Error") {
+               key("code", result.resultCode)
+               key("data", result.toString())
+           }
+           sendToastError()
+           return
+       }
 
-            parentFragmentManager.popBackStack()
-        } else {
-            FB.crashlytics.logSimpleError("Login Error") {
+        val authUser = FB.auth.GetAuthenticationDatabaseUser()?: kotlin.run {
+            FB.crashlytics.logSimpleError("Login Error No User") {
                 key("code", result.resultCode)
                 key("data", result.toString())
             }
-            Snackbar.make(AppDrawer.get().fragmentView, getString(R.string.login_error), Snackbar.LENGTH_LONG)
-                .show()
+            sendToastError()
+            return
         }
+
+        val id = authUser.id?: kotlin.run {
+            FB.crashlytics.logSimpleError("Login Error No ID") {
+                key("code", result.resultCode)
+                key("data", result.toString())
+            }
+            sendToastError()
+            return
+        }
+
+        FB.dataBase.find<DataBaseUser>(id, authUser.GetTable(),
+            onSuccess = { dbUser ->
+                dbUser.lastLogin = Date()
+
+                finalSaveUser(dbUser)
+            },
+            onFailure = {
+                finalSaveUser(authUser)
+            })
+    }
+
+    private fun finalSaveUser(dbUser: DataBaseUser)
+    {
+        FB.dataBase.save(dbUser,
+            onSuccess = { dbUser ->
+                FB.auth.SetCurrentUser(dbUser)
+                sendToastSuccessAndClose()
+            },
+            onFailure = {
+                sendToastError()
+            }
+        )
+    }
+
+    private fun sendToastError() {
+        Snackbar.make(
+            AppDrawer.get().fragmentView,
+            getString(R.string.login_error),
+            Snackbar.LENGTH_LONG)
+            .show()
+    }
+
+    private fun sendToastSuccessAndClose() {
+        Snackbar.make(
+            AppDrawer.get().fragmentView,
+            getString(R.string.user_login_message, FB.auth.GetUser()?.username),
+            Snackbar.LENGTH_LONG)
+            .show()
+        parentFragmentManager.popBackStack()
     }
 }
