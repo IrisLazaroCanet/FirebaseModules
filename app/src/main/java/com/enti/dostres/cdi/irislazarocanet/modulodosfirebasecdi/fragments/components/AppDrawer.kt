@@ -7,10 +7,11 @@ import android.view.ViewGroup
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.R
+import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.firebase.FB
 import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.fragments.screens.LoginScreen
 import com.google.android.material.navigation.NavigationView
 
-class AppDrawer : Fragment() {
+class AppDrawer : Fragment(), DrawerLayout.DrawerListener {
 
     companion object {
         private lateinit var Instance:AppDrawer
@@ -45,17 +46,12 @@ class AppDrawer : Fragment() {
             {
                 R.id.login_drawer_button -> {
 
-                    val loginScreen = LoginScreen()
-                    val transaction = childFragmentManager.beginTransaction()
-                    transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right,
-                        R.anim.enter_from_right, R.anim.exit_to_right)
-
-                    //Si hi havia una altra cosa dins el reusable, la substituirà per loginScreen
-                    transaction.replace(R.id.reusableDialogsContainer, loginScreen)
-                        .addToBackStack(null)
-                        .commit()
+                    OpenLogin();
 
                     drawer.close()
+                }
+                R.id.profile_drawer_button -> {
+                    //TODO
                 }
             }
 
@@ -63,8 +59,42 @@ class AppDrawer : Fragment() {
         }
     }
 
+    fun OpenLogin(){
+        val loginScreen = LoginScreen();
+        childFragmentManager.beginTransaction()
+            .setCustomAnimations(
+                R.anim.enter_from_right, R.anim.exit_to_right,
+                R.anim.enter_from_right, R.anim.exit_to_right)
+            .replace(R.id.reusableDialogContainer, loginScreen)
+            .addToBackStack(null)
+            .commit()
+    }
+
     fun openDrawer()
     {
         drawer.open()
+    }
+
+    fun CheckLoginState(){
+        val isLoginActive = FB.auth.IsLoginActive()
+
+        navigationDrawer.menu.findItem(R.id.login_drawer_button).isVisible = !isLoginActive;
+        navigationDrawer.menu.findItem(R.id.profile_drawer_button).isVisible = isLoginActive;
+    }
+
+    override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onDrawerOpened(drawerView: View) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onDrawerClosed(drawerView: View) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onDrawerStateChanged(newState: Int) {
+        TODO("Not yet implemented")
     }
 }
