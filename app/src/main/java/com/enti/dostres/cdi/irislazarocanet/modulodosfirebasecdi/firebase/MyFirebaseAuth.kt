@@ -2,8 +2,9 @@ package com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.firebase
 
 import android.app.Application
 import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.R
-import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.clases.firebase.models.DataBaseUser
 import com.google.firebase.auth.FirebaseAuth
+import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.firebase.models.DataBaseUser
+
 
 class MyFirebaseAuth(val appContext: Application) {
 

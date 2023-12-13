@@ -1,6 +1,6 @@
 package com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.firebase
 
-import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.clases.firebase.models.DataBaseData
+import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.firebase.models.DataBaseData
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
