@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view"
-    >
+    tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/login_drawer_button"
             android:title="@string/login_title"
+            android:icon="@drawable/profile_icon">
+
+        </item>
+
+        <item
+            android:id="@+id/profile_drawer_button"
+            android:title="@string/profile_title"
             android:icon="@drawable/profile_icon"
-            />
+            android:visible="false">
+
+        </item>
+
     </group>
 
 </menu>
