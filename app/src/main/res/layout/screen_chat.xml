@@ -43,7 +43,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint=""
-                    app:startInconDrawable="@drawable/send_chat_message_icon"
+                    app:startIconDrawable="@drawable/send_chat_message_icon"
                     app:endIconMode="custom"
                     app:endIconDrawable="@drawable/send_chat_message_icon">
 
