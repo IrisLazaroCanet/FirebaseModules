@@ -10,19 +10,24 @@
         <item name="colorPrimaryVariant">@color/lighterLight</item>
         <item name="colorOnPrimary">@color/baseGrey</item>
         <item name="android:textColorPrimary">@color/baseLight</item>
+
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/baseGrey</item>
         <item name="colorSecondaryVariant">@color/lighterGrey</item>
         <item name="colorOnSecondary">@color/baseLight</item>
         <item name="android:textColorSecondary">@color/debugColor</item>
+
         <!-- Surface Colors -->
         <item name="colorSurface">?attr/colorSecondary</item>
         <item name="colorOnSurface">@color/clearColor</item>
+
         <!-- Status bar color -->
         <item name="android:statusBarColor">@color/baseGrey</item>
+
         <!-- Shadow setup -->
         <item name="android:ambientShadowAlpha">0.7</item>
         <item name="android:spotShadowAlpha">0.7</item>
+
         <!-- Background app -->
         <item name="android:colorBackground">@color/baseLight</item>
 
@@ -76,7 +81,7 @@
     <style name="ModuloDosFirebaseCDI.Button" parent="Widget.MaterialComponents.Button">
         <item name="android:textColor">@color/baseLight</item>
         <item name="backgroundTint">@color/baseGrey</item>
-        <item name="rippleColor">@color/darkestLight</item>
+        <item name="rippleColor">@color/lighterLight</item>
         <item name="android:stateListAnimator">@null</item>
         <item name="android:elevation">@dimen/shadow_elevation</item>
     </style>
