@@ -43,7 +43,7 @@
         </androidx.fragment.app.FragmentContainerView>
 
         <FrameLayout
-            android:id="@+id/reusableDialogsContainer"
+            android:id="@+id/reusableDialogContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/componentToolbarContainer"
