@@ -12,6 +12,7 @@ import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.MyApp
 import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.R
 import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.firebase.FB
 import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.fragments.components.AppDrawer
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 
 class ChatScreen : Fragment() {
@@ -57,8 +58,29 @@ class ChatScreen : Fragment() {
         val inputText = messageInput.editText?.text.toString()
         val text = if(inputText != "") inputText else null
 
-        messageAdapter.AddMessage(text, null)
-        messageInput.editText?.text?.clear()
+        var imageUri = currentImageUri ?: kotlin.run {
+            messageAdapter.AddMessage(text, null);
+            messageInput.editText?.text?.clear()
+            return
+        }
 
+        FB.storage.saveImage(imageUri,
+            onSuccess = {newImageUri ->
+                messageAdapter.AddMessage(text, newImageUri.toString())
+
+                messageInput.editText?.text?.clear()
+
+                onImagePicked(null)
+            },
+            onFailure = {
+                Snackbar.make(AppDrawer.get().fragmentView,
+                    getString(R.string.chat_upload_image_error),
+                    Snackbar.LENGTH_LONG
+                ).show()
+            })
+    }
+
+    fun openImagePicker() {
+        galleryLauncher.launch("image/*")
     }
 }

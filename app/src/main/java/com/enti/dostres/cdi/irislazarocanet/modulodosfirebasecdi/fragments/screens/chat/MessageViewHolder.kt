@@ -1,5 +1,6 @@
 package com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.fragments.screens.chat
 
+import android.graphics.BitmapFactory
 import android.view.Gravity
 import android.view.View
 import android.widget.ImageView
@@ -9,6 +10,10 @@ import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.R
 import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.firebase.FB
 import com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.firebase.models.DataBaseMessage
 import com.google.android.material.textview.MaterialTextView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import java.net.URL
 
 class MessageViewHolder(view: View) : RecyclerView.ViewHolder(view){
 
@@ -31,7 +36,34 @@ class MessageViewHolder(view: View) : RecyclerView.ViewHolder(view){
             message.visibility = View.GONE
         }
 
-        dataBaseMessage.imageUrl?.let {
+        dataBaseMessage.imageUrl?.let {imageUrl ->
+
+            //Podríem posar-li un placeholder mentre es carrega la imatge
+            //Es podria agafar la mida de la imatge en pujar-la, perquè així el placeholder tingui la mateixa mida
+            //I no creixi de cop quan es carrega la imatge
+            //...
+
+            //També li podríem posar un spinner de càrrega mentre no apareix la imatge
+
+            //Creem un thread utilitzant el sistema de corutines de kotlin
+            CoroutineScope(Dispatchers.IO).launch {
+
+                val stream = URL(imageUrl).openStream()
+                //Tot els streams treballen amb mapes de bits
+                //Passar a bitmap ens fa l'array de puntets de colors
+                val bitMap = BitmapFactory.decodeStream(stream)
+
+                //No es pot canviar la UI en un thread que no sigui el principal
+                //Sols ho podríem fer si tinguéssim un engine propi
+                //Hem de tornar al thread principal, doncs
+                CoroutineScope(Dispatchers.Main).launch {
+
+                    image.setImageBitmap(bitMap)
+                    image.visibility = View.VISIBLE
+                }
+
+            }
+
             //TODO load image
             message.visibility = View.VISIBLE
         } ?: kotlin.run {
