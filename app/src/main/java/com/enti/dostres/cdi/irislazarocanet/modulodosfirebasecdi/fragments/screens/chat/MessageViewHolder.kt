@@ -63,9 +63,6 @@ class MessageViewHolder(view: View) : RecyclerView.ViewHolder(view){
                 }
 
             }
-
-            //TODO load image
-            message.visibility = View.VISIBLE
         } ?: kotlin.run {
             message.visibility = View.GONE
         }
