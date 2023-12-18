@@ -15,5 +15,7 @@ class MainActivity : AppCompatActivity(){
             key("Cuanto azucar quieres", true)
         }
 
+        setTheme(FB.remoteConfig.getTheme().themeId)
+
     }
 }
