@@ -2,6 +2,7 @@ package com.enti.dostres.cdi.irislazarocanet.modulodosfirebasecdi.fragments.scre
 
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,7 +47,9 @@ class ChatScreen : Fragment() {
         messageTable.layoutManager = LinearLayoutManager(MyApp.get())
         messageTable.adapter = messageAdapter
 
+        Log.d("test", "hello")
         messageInput.setStartIconOnClickListener {
+            Log.d("test", "clicked image button")
             openImagePicker()
         }
 

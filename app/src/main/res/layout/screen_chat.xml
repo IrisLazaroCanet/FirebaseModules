@@ -43,7 +43,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint=""
-                    app:endIconMode="custom">
+                    app:startIconDrawable="@drawable/send_chat_image_icon"
+                    app:endIconMode="custom"
+                    app:endIconDrawable="@drawable/send_chat_message_icon">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
