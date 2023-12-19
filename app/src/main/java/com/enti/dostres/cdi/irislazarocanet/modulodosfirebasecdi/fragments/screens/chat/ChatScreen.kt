@@ -38,7 +38,8 @@ class ChatScreen : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
         ): View? {
-        return inflater.inflate(R.layout.screen_chat, container, false)
+        fragmentView = inflater.inflate(R.layout.screen_chat, container, false)
+        return fragmentView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -54,6 +55,7 @@ class ChatScreen : Fragment() {
         }
 
         messageInput.setEndIconOnClickListener {
+            Log.d("test", "clicked send button")
             SendMessage()
         }
     }

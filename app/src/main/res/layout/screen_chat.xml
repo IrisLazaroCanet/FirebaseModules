@@ -42,16 +42,12 @@
                     android:id="@+id/chat_messages_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint=""
-                    app:startIconDrawable="@drawable/send_chat_image_icon"
+                    android:hint="Test"
                     app:endIconMode="custom"
-                    app:endIconDrawable="@drawable/send_chat_message_icon">
+                    app:startIconDrawable="@drawable/send_chat_image_icon"
+                    app:endIconDrawable="@drawable/send_chat_message_icon"
+                    >
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                    </com.google.android.material.textfield.TextInputEditText>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
